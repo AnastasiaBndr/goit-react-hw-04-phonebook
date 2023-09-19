@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import { useState } from 'react';
+import { useEffect } from 'react';
 import css from './App.module.css';
 import Notiflix from 'notiflix';
 import debounce from "lodash.debounce";
@@ -8,7 +9,9 @@ import Filter from './Filter';
 import ContactList from "./ContactList";
 import ContactForm from "./ContactForm";
 
-export class App extends Component {
+export default function App (){
+
+  
   state = {
     contacts: [
       { id: 'id-1', name: 'Rosie Simpson', number: '+380004814000' },
