@@ -11,7 +11,6 @@ export default function App() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const [filter, setFilter] = useState('');
-  const [contacts, setContacts] = useState([]);
 
   const contactsFill = [{ id: 'id-1', name: 'Rosie Simpson', number: '+380004814000' },
   { id: 'id-2', name: 'Hermione Kline', number: '+380018050200' },
@@ -22,11 +21,11 @@ export default function App() {
   { id: 'id-7', name: 'Eden Clements', number: '+380000300567' },
   { id: 'id-8', name: 'Annie Copeland', number: '+380204050600' },];
 
+  const [contacts, setContacts] = useState(result => [...contactsFill]);
 
   useEffect(() => {
     if (localStorage.getItem("contacts") !== null)
       setContacts(result => [...JSON.parse(localStorage.getItem("contacts"))]);
-    else setContacts(result => [...contactsFill]);
   }, []);
 
   const handleChange = e => {
